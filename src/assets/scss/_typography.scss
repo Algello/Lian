@@ -31,8 +31,22 @@ Black (Heavy)
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: $font-default;
+  font-size: 1.6rem;
   line-height: 2.4rem;
-  color: $color-grey;
+  color: #777777;
+}
+
+.h3 {
+  color: black;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.par {
+  color: #777;
+  font-size: 1.4rem;
+  line-height: 3rem;
 }
 

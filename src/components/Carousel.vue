@@ -1,21 +1,18 @@
 <template>
     <carousel :per-page="1" :mouse-drag="true" :navigationEnabled="true" :loop="true">
         <slide class="slide">
-            <img src="../assets/img/carousel-bg.jpg" alt="carousel background image">
             <div class="slide-text">
                 <h2 class="slide-h2">lian creative agency</h2>
                 <p class="slide-par">minimal freelance portfolio</p>
             </div>
         </slide>
         <slide class="slide">
-            <img src="../assets/img/carousel-bg.jpg" alt="carousel background image">
             <div class="slide-text">
                 <h2 class="slide-h2">we love juicy lemons</h2>
                 <p class="slide-par">fruits is love</p>
             </div>
         </slide>
         <slide class="slide">
-            <img src="../assets/img/carousel-bg.jpg" alt="carousel background image">
             <div class="slide-text">
                 <h2 class="slide-h2">some fancy words</h2>
                 <p class="slide-par">wow such clever much cool</p>
@@ -37,14 +34,27 @@
 
 <style lang="scss">
     @import '../assets/scss/_variables.scss';
+    @import '../assets/scss/mixins.scss';
     .slide {
-        position: relative;
+        background-image: url(../assets/img/carousel-bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65rem;
+        @include respond(tab-land) {
+            height: 50rem;
+        }
+        @include respond(tab-port) {
+            height: 35rem;
+        }
+        @include respond(phone) {
+            height: 25rem;
+        }
     }
     .slide-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
         text-align: center;
     }
     .slide-h2 {
@@ -56,6 +66,13 @@
         background-color: $color-black;
         padding: 1.3rem 5rem;
         margin-bottom: 3.5rem;
+        @include respond(tab-land) {
+            font-size: 3.5rem;
+        }
+        @include respond(tab-port) {
+            font-size: 2.8rem;
+            padding: 1.1rem 2.8rem;
+        }
     }
     .slide-par {
         color: black;
@@ -64,12 +81,34 @@
         font-weight: 400;
         line-height: 2.4rem;
         text-transform: uppercase;
+        @include respond(tab-port) {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
     }
     .VueCarousel-navigation-next {
         right: 130px !important;
+        @include respond(tab-land) {
+            right: 90px !important;
+        }
+        @include respond(tab-port) {
+            right: 70px !important;
+        }
+        @include respond(phone) {
+            right: 45px !important;
+        }
     }
     .VueCarousel-navigation-prev {
         left: 130px !important;
+        @include respond(tab-land) {
+            left: 90px !important;
+        }
+        @include respond(tab-port) {
+            left: 70px !important;
+        }
+        @include respond(phone) {
+            left: 45px !important;
+        }
     }
     .VueCarousel-navigation-button {
         border: 1px solid white !important;
@@ -92,5 +131,14 @@
     .VueCarousel-pagination {
         position: absolute;
         bottom: 55px;
+        @include respond(tab-land) {
+            bottom: 30px;
+        }
+        @include respond(tab-port) {
+            bottom: 20px;
+        }
+        @include respond(phone) {
+            bottom: 5px;
+        }
     }
 </style>

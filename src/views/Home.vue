@@ -1,5 +1,5 @@
 <template>
-    <section class="section-home">
+    <section class="page-home">
         <div class="wrapper">
             <Carousel class="carousel"></Carousel>
             <Gallery :imageSrc="[require(`@/assets/img/gallery_item-4-min.jpg`),
@@ -31,13 +31,15 @@
 </script>
 
 <style scoped lang="scss">
-    .wrapper {
-        max-width: 160rem;
-        margin: 0 auto;
-    }
+    @import '../assets/scss/mixins';
+    @import '../assets/scss/grid';
+    @import '../assets/scss/utilities';
 
-    .section-home {
+    .page-home {
         background-color: #fafafa;
+        @include respond(phone) {
+            background-color: #ffffff;
+        }
     }
 
     .carousel {
