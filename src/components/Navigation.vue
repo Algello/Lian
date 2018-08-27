@@ -13,8 +13,8 @@
                             <li class="nav-item" @click="isVisible = false">
                                 <router-link to="/about" class="nav-link" active-class="nav-active">about</router-link>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">portfolio</a>
+                            <li class="nav-item" @click="isVisible = false">
+                                <router-link to="/portfolio" class="nav-link" active-class="nav-active">portfolio</router-link>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">blog</a>
@@ -149,7 +149,7 @@
     }
     .nav-active {
         color: $color-black;
-        &::after {
+        /*&::after {
             position: absolute;
             top: 50px;
             right: 56px;
@@ -173,7 +173,7 @@
                 display: none;
                 position: inherit;
             }
-        }
+        }*/
         @include respond(phone) {
             border-bottom: 1px solid rgba(#000000, .5);
         }
