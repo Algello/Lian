@@ -25,7 +25,7 @@
             </div>
             </transition-group>
 
-        <button type="button" class="btn">load more</button>
+        <button type="button" @click="btnLoading" class="btn">{{btn}} <span v-show="btnState === 'loading'"><font-awesome-icon class="fa-spin" icon="spinner"/></span></button>
         <div class="gallery-modal" v-show="modalIsVisible">
             <span class="close" @click="hideModal">&times;</span>
             <img class="gallery-modal__content" :src="currentModalImage">
@@ -39,7 +39,9 @@
             return {
                 state: 'all',
                 modalIsVisible: false,
-                currentModalImage: ''
+                currentModalImage: '',
+                btnState: 'normal',
+                btnPressedCount: 0
             }
         },
         methods:  {
@@ -52,6 +54,11 @@
             },
             hideModal() {
                 this.modalIsVisible = false;
+            },
+            btnLoading() {
+                this.btnState = 'loading';
+                setTimeout(()=>{this.btnState = 'error'}, 3000);
+                setTimeout(()=>{this.btnState = 'normal'}, 7000);
             }
         },
         props: {imageSrc: {type: Array, required: true}},
@@ -80,6 +87,19 @@
                         return this.imageSrc.slice(3,8);
                         break;
                 }
+            },
+            btn() {
+                switch(this.btnState) {
+                    case 'normal':
+                        return 'load more';
+                        break;
+                    case 'loading':
+                        return 'searching';
+                        break;
+                    case 'error':
+                        return 'no new images found';
+                        break;
+                }
             }
         }
     }
@@ -92,6 +112,9 @@
     .container {
         text-align: center;
         padding-bottom: 7rem;
+        @include respond(phone) {
+            padding-bottom: 2rem;
+        }
     }
     .gallery-menu-wrapper {
         display: flex;
@@ -192,6 +215,7 @@
     }
     .btn {
         @include btn();
+
         background-color: #959595;
         border-radius: 2px;
         color: white;

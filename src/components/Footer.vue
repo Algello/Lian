@@ -26,12 +26,19 @@
 </template>
 
 <style scoped lang="scss">
+    @import '../assets/scss/mixins';
     .wrapper {
         text-align: center;
         padding: 6.5rem 0 4.5rem 0;
+        @include respond(phone) {
+            padding: 3.5rem 0 2rem 0;
+        }
     }
     .footer-logo {
         margin-bottom: 4.5rem;
+        @include respond(phone) {
+            margin-bottom: 1rem;
+        }
     }
     .social {
         display: flex;
@@ -41,6 +48,9 @@
         border-top: 1px solid #ebebeb;
         border-bottom: 1px solid #ebebeb;
         margin-bottom: 3.5rem;
+        @include respond(phone) {
+            margin-bottom: 1.5rem;
+        }
     }
     .icon-wrapper {
         color: #777;

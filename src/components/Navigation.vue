@@ -7,10 +7,10 @@
                 </router-link>
                 <nav class="main-nav">
                         <ul class="nav-wrapper" :class="{responsive: isVisible}">
-                            <li class="nav-item">
+                            <li class="nav-item" @click="isVisible = false">
                                 <router-link  to="/" class="nav-link" active-class="nav-active" exact>home</router-link>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" @click="isVisible = false">
                                 <router-link to="/about" class="nav-link" active-class="nav-active">about</router-link>
                             </li>
                             <li class="nav-item">
@@ -58,6 +58,10 @@
 
             },
             toggleMenu() {
+                if(this.isFocused === true) {
+                    this.$refs.search.blur();
+                    this.isFocused = false;
+                }
                 this.isVisible = !this.isVisible;
             }
         }
@@ -136,6 +140,7 @@
             font-size: 2.5rem;
             padding: 3rem 0;
             border-bottom: 1px solid rgba(#000000, .1);
+            position: inherit;
             &:hover,
             &:active {
                 border-bottom: 1px solid rgba(#000000, .5);
@@ -166,6 +171,7 @@
             }
             @include respond(phone) {
                 display: none;
+                position: inherit;
             }
         }
         @include respond(phone) {
@@ -184,6 +190,7 @@
         @include respond(phone) {
             top: 0;
             font-size: 2rem;
+            position: inherit;
         }
     }
     .nav-search-input {
@@ -210,9 +217,10 @@
         @include respond(phone) {
             padding-top: 2rem;
             padding-bottom: 2rem;
-            top: -18px;
+            top: 101%;
+            right: 0;
             &:focus {
-                width: 30rem;
+                width: 100%;
             }
         }
     }

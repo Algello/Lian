@@ -52,7 +52,9 @@
   transform: translate(-50%,-50%);
 }
 
-
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
 
 //Media query manager
 
@@ -86,5 +88,8 @@ ORDER: Base + Typography -> General layout + Grid -> Page layout -> Components
   }
   @if($breakpoint == big-desktop) {
     @media (min-width: 112.5em) {@content};    //1800px +
+  }
+  @if(is-number($breakpoint)) {
+    @media (max-width: $breakpoint / 16 + 'em') {@content}
   }
 }

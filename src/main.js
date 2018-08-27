@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import  router  from './router'
 import 'roboto-npm-webfont';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch, faSearchPlus, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSearchPlus, faBars, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faGoogle, faTwitter, faLinkedin, faDribbble, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faSearch);
 library.add(faSearchPlus);
 library.add(faBars);
+library.add(faSpinner);
 library.add(faFacebookF);
 library.add(faGoogle);
 library.add(faTwitter);
@@ -20,6 +21,11 @@ library.add(faInstagram);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
+
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title;
+    next()
+});
 
 new Vue({
   router,

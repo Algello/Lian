@@ -41,6 +41,7 @@
         }
         @include respond(phone) {
             height: 20rem;
+            background-image: none !important;
         }
     }
     .container {
@@ -48,6 +49,10 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        @include respond(phone) {
+            justify-content: center;
+            text-align: center;
+        }
     }
     .heading-h2 {
         display: inline-block;
