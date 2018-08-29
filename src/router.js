@@ -24,6 +24,12 @@ export default new Router({
             name: 'portfolio',
             meta:{title: 'Lian - Portfolio',pageNumber: 3},
             component: () => import(/* webpackChunkName: "portfolio" */ './views/Portfolio.vue')
+        },
+        {
+            path: '/blog',
+            name: 'blog',
+            meta:{title: 'Lian - Blog',pageNumber: 4},
+            component: () => import(/* webpackChunkName: "blog" */ './views/Blog.vue')
         }
     ]
 })

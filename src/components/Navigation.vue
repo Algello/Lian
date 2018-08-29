@@ -16,8 +16,8 @@
                             <li class="nav-item" @click="isVisible = false">
                                 <router-link to="/portfolio" class="nav-link" active-class="nav-active">portfolio</router-link>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">blog</a>
+                            <li class="nav-item" @click="isVisible = false">
+                                <router-link to="/blog" class="nav-link" active-class="nav-active">blog</router-link>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">contact</a>
@@ -75,6 +75,7 @@
         box-shadow: 1px 1.7px 4.8px 0.3px rgba(0, 0, 0, 0.15);
         position: relative;
         z-index: 100;
+        background-color: #ffffff;
     }
     .sticky {
         position: fixed;

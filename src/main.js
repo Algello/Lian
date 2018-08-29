@@ -3,7 +3,7 @@ import App from './App.vue'
 import  router  from './router'
 import 'roboto-npm-webfont';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch, faSearchPlus, faBars, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSearchPlus, faBars, faSpinner, faUser, faCalendar, faShareAlt, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faGoogle, faTwitter, faLinkedin, faDribbble, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -11,6 +11,10 @@ library.add(faSearch);
 library.add(faSearchPlus);
 library.add(faBars);
 library.add(faSpinner);
+library.add(faUser);
+library.add(faCalendar);
+library.add(faShareAlt);
+library.add(faHeart);
 library.add(faFacebookF);
 library.add(faGoogle);
 library.add(faTwitter);
